@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKP Kaligtasan Member Verification</title>
+<style>
+body{margin:0;padding:20px;font-family:Arial,sans-serif;background:#111;color:#111}
+.card{max-width:500px;margin:auto;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 5px 25px rgba(0,0,0,.5)}
+.header{background:#000;color:#fff;text-align:center;padding:20px 15px}
+.header img{width:100px;height:100px;object-fit:contain;border-radius:50%}
+.header h1{font-size:23px;margin:10px 0 5px}.header p{margin:4px 0;font-size:13px}
+.photo{text-align:center;padding:25px 20px 10px}.photo img{width:180px;height:220px;object-fit:cover;border-radius:12px;border:4px solid #111}
+.verified{text-align:center;margin:20px;padding:15px;background:#eee;border-radius:12px;font-size:20px;font-weight:bold}
+.details{padding:5px 25px 20px}.row{border-bottom:1px solid #ddd;padding:13px 0}
+.label{font-weight:bold;font-size:13px;color:#555}.value{font-size:17px;margin-top:4px}.status{font-weight:bold}
+.message{margin:20px 25px 30px;padding:18px;border:2px solid #222;border-radius:12px;text-align:center;line-height:1.5;font-size:15px}
+.footer{background:#000;color:#fff;text-align:center;padding:15px;font-size:12px}
+</style>
+</head>
+<body>
+<div class="card">
+<div class="header">
+<img src="kaligtasan-logo.png" alt="Kaligtasan Chapter Logo">
+<h1>MEMBER VERIFICATION</h1>
+<p>ALPHA KAPPA RHO INTERNATIONAL</p>
+<p>HUMANITARIAN SERVICE FRATERNITY AND SORORITY</p>
+<p><strong>BONGABONG COUNCIL — KALIGTASAN CHAPTER</strong></p>
+</div>
+<div class="photo"><img id="memberPhoto" alt="Member Photo"></div>
+<div class="verified">✓ MEMBERSHIP VERIFIED</div>
+<div class="details">
+<div class="row"><div class="label">NAME</div><div class="value" id="memberName"></div></div>
+<div class="row"><div class="label">POSITION</div><div class="value" id="memberPosition"></div></div>
+<div class="row"><div class="label">MEMBERSHIP ID NO.</div><div class="value" id="memberID"></div></div>
+<div class="row"><div class="label">DATE SURVIVE</div><div class="value" id="memberDate"></div></div>
+<div class="row"><div class="label">STATUS</div><div class="value status" id="memberStatus"></div></div>
+</div>
+<div class="message">
+<strong>VERIFICATION MESSAGE</strong><br><br>
+The person whose photo and name appear here is a
+<strong>LEGITIMATE MEMBER</strong> of Alpha Kappa Rho International Humanitarian Service Fraternity and Sorority,
+Kaligtasan Chapter, Bongabong Council.
+</div>
+<div class="footer">Official Membership Verification Page<br>Kaligtasan Chapter — Bongabong Council</div>
+</div>
+
+<script>
+const members={
+"AKP-KLGTSN-001":{
+name:"Jerryme Maestre",
+position:"Vice Chairman",
+id:"AKP-KLGTSN-001",
+date:"April 12, 2010",
+status:"✓ LEGIT MEMBER",
+photo:"jerryme-maestre.jpg"
+},
+"AKP-KLGTSN-002":{
+name:"Virgin May Bello",
+position:"PLVGS - ORIENTAL MINDORO",
+id:"AKP-KLGTSN-002",
+date:"December 12, 2011",
+status:"✓ LEGIT MEMBER",
+photo:"virgin-may-bello.jpg"
+}
+};
+
+const id=new URLSearchParams(location.search).get("id")||"AKP-KLGTSN-001";
+const member=members[id];
+
+if(member){
+document.getElementById("memberPhoto").src=member.photo;
+document.getElementById("memberName").textContent=member.name;
+document.getElementById("memberPosition").textContent=member.position;
+document.getElementById("memberID").textContent=member.id;
+document.getElementById("memberDate").textContent=member.date;
+document.getElementById("memberStatus").textContent=member.status;
+document.title="Member Verification - "+member.name;
+}
+</script>
+</body>
+  </html>
