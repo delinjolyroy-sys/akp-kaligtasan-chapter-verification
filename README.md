@@ -1,0 +1,1 @@
+# akp-kaligtasan-chapter-verification
